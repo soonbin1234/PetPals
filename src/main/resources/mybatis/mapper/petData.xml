@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.dataDAO">
+<select id="view" resultType="com.himedia.pet.DTO.dataDTO">
+   SELECT id, name,category, loadAddress, number, homepage, holiday, operatingTime, parking, petSize, petben, 
+   areaIn, areaOut, wido, gyeongdo  
+   from petdata where id=#{param1}
+</select> 
+
+<!-- 리뷰 -->
+<insert id="write">
+   INSERT into board set pNAme=#{param1},userId=#{param2},content=#{param3},rating=#{param4},created=sysdate()
+</insert>
+<!-- <select id="reviewLoad" resultType="com.himedia.pet.DTO.boardDTO">
+   SELECT id, userId, content,rating, created from board where pName=#{param1} limit #{param2},10
+</select>  -->
+ <select id="reviewLoad" resultType="com.himedia.pet.DTO.boardDTO">
+   SELECT a.id,email,content,rating, created 
+   from board a,login b
+   where a.userId=b.id 
+   and pName=#{param1} 
+   limit #{param2},10
+</select> 
+<delete id="rDelete">
+   delete from board where id=#{param1}
+</delete>
+<update id="rUpdate">
+   UPDATE board set content=#{param1},rating=#{param2},created=sysdate() where id=#{param3}
+</update>
+<select id="reLoad" resultType="com.himedia.pet.DTO.boardDTO">
+   SELECT content,rating from board where id=#{param1}
+</select>
+<select resultType="_int" id="reviewTotal">
+   select count(*) from board where pName like #{param1}
+</select>
+
+<!-- 리뷰목록 불러오기 -->
+<select id="reviewList" resultType="com.himedia.pet.DTO.boardDTO">
+    select c.id,a.content,b.email,a.rating
+      from  board a,login b,petdata c
+      where a.userId=b.id
+      and a.pName=c.id
+      and a.userId=#{param1}  
+</select>
+
+
+<!-- 찜 -->
+<insert id="jjim">
+   insert into jjim set userid=#{param1}, dataid=#{param2}
+</insert>
+<select resultType="_int" id="chekJjim">
+   select count(*) from jjim where userid=#{param1} and dataid=#{param2}
+</select>
+<select resultType="_int" id="getJjimid">
+   select id from jjim where userid=#{param1} and dataid=#{param2}
+</select>
+<delete id="delJjim">
+   delete from jjim where id=#{param1}
+</delete>
+
+<!-- 찜목록 불러오기 -->
+<select id="jjimList" resultType="com.himedia.pet.DTO.dataDTO">
+   select b.id,b.name,b.number,b.loadAddress
+   from jjim a, petdata b,login c
+   where a.dataid=b.id
+   and a.userid=c.id
+   and a.userid=#{param1}   
+</select>
+
+
+  <!-- 찜 이메일로 아이디가져오기 -->
+  <select id="getjjim_id" resultType="string">
+      select id from login where email=#{param1}
+  </select>
+
+	<!-- 광고 문의-->
+	<insert id="adsave">
+	   insert into adpayments set userid=#{param1},months=#{param2},amount=#{param3},payment_method=#{param4},order_time=sysdate()
+	</insert>
+	<update id="adregistration">
+	   update adpayments set url=#{param1},img=#{param2} where userid=#{param3}
+	</update>
+	<select id="adList" resultType="com.himedia.pet.DTO.adDTO">
+	   select img,url from adpayments
+	</select>
+	
+	<select id="urlList" resultType="com.himedia.pet.DTO.adDTO">
+	   select url from adpayments where img=#{param1}
+	</select>
+
+	
+
+</mapper>

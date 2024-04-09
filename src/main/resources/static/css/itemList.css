@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif; /* 전체 폰트 설정 */
+    background-color: #f8f8f8; /* 페이지 배경색 설정 */
+    margin: 0; /* 페이지 마진 제거 */
+}
+
+header {
+    background-color: #333; /* 헤더 배경색 설정 */
+    color: white; /* 헤더 텍스트 색상 설정 */
+    padding: 10px 0; /* 헤더 패딩 설정 */
+}
+
+h1 {
+    text-align: center; /* 제목 가운데 정렬 */
+    margin-top: 20px; /* 제목 위쪽 여백 추가 */
+}
+
+.pet_item {
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 변환 및 그림자에 애니메이션 적용 */
+}
+.pet_item {
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 변환 및 그림자에 애니메이션 적용 */
+    float: left; /* 왼쪽으로 부유시킵니다. */
+    margin-right: 20px; /* 오른쪽 여백 추가 */
+    clear: none; /* float 속성을 지웁니다. */
+}
+
+
+
+.pet_item:hover {
+    transform: translateY(-5px); /* 마우스 호버 시 약간 위로 이동 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 효과 강화 */
+}
+
+.pet_item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 20px;
+    
+    
+}
+
+.pet_item img {
+    width: 100%;
+    height: 350px; /* 모든 이미지의 높이를 200px로 지정합니다. */
+    object-fit: cover; /* 이미지 비율 유지 및 가로/세로 가득 차도록 설정합니다. */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.pet_item h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.pet_item p {
+    color: #777;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,75 @@
+@charset "UTF-8";  
+
+.side-ad {
+  position: fixed;
+  top: 50%;   
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 200px;
+  height:400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-ad h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.side-ad p {
+  margin-bottom: 10px;
+}
+
+.side-ad a {
+  display: block;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.side-ad a:hover {
+  background-color: #0056b3;
+}
+
+.side-ad2 {
+  position: fixed;
+  top: 50%;   
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 200px;
+  height:400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-ad2 h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.side-ad2 p {
+  margin-bottom: 10px;
+}
+
+.side-ad2 a {
+  display: block;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.side-ad2 a:hover {
+  background-color: #0056b3;
+}
+.image {
+    width: 200px; /* 원하는 너비로 조절 */
+    height: 300px; /* 높이를 자동으로 조절하여 비율 유지 */
+}

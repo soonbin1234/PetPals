@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.noticeDAO">
+   <!-- 공지사항 리스트 -->
+   <select id="notice" resultType="com.himedia.pet.DTO.noticeDTO">
+      SELECT a.id, title, b.email, detail, image, created_at, views from notice a,login b where a.userid=b.id order by id desc LIMIT #{param1},10
+   </select>
+   
+   <!-- 공지사항 추가 -->
+   <insert id="addNotice">
+       INSERT INTO notice set title=#{param1},userid=#{param2}, image=#{param3}, detail=#{param4}, views=0, created_at=NOW()
+   </insert>
+      
+   <!-- 공지사항 업데이트 -->
+   <update id="modify">
+      UPDATE notice SET title=#{param2}, userid=#{param3}, image=#{param4}, detail=#{param5} where id =#{param1}
+   </update>
+   <select id="noticeList" resultType="com.himedia.pet.DTO.noticeDTO">
+      SELECT id, title, detail, image from notice where id=#{param1}
+   </select>
+   
+   
+   <!-- 공지사항 상세보기 -->
+   <select id="textView" resultType="com.himedia.pet.DTO.noticeDTO">
+         SELECT id,title,  detail, image, views, created_at from notice where id=#{param1}
+   </select>
+   
+   <!-- 공지사항 삭제 -->
+   <delete id="remove">
+         delete from notice where id =#{param1}
+   </delete>
+   
+   <!-- 공지사항 조회수 업데이트 -->
+   <update id="updateViews">
+       UPDATE notice SET views = views + 1 WHERE id = #{param1}
+   </update>
+
+   <select id ="total" resultType="int">
+      Select count(*) from notice;
+   </select>
+   
+   <select id="getImageName" parameterType="int" resultType="java.lang.String">
+        SELECT image FROM notice WHERE id = #{id}
+    </select>
+   
+</mapper>

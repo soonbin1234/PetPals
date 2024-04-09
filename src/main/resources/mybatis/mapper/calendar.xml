@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.calendarDAO">
+   
+   <!-- 캘린더 추가 -->
+   <insert id="addCalendar">
+      INSERT INTO calendar set userName=#{param1},
+                         title=#{param2},
+                         start=#{param3},
+                         end=#{param4},
+                         backgroundColor=#{param5}
+   </insert>
+   
+   <!-- 고객 달력 -->
+   <select id ="selectCal" resultType="com.himedia.pet.DTO.calendarDTO">
+      select * from calendar where userName= #{param1}
+   </select>
+   
+   <select id="getCal_id" resultType="String">
+   	select id from calendar where title=#{param1}
+   </select>
+   <delete id="delCalendar">
+   	delete from calendar where id=#{param1}
+   </delete>
+   
+</mapper>

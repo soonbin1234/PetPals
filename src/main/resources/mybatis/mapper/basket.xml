@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.BasketDAO">
+    <!-- 장바구니 -->
+   	<select id="basketList" resultType="com.himedia.pet.DTO.BasketDTO">
+   		select orderid, title, price, amount, count, img from basket
+   	</select>
+   	<!-- 장바구니 userid확인 -->
+   	<select id="userbasketList" resultType="com.himedia.pet.DTO.BasketDTO">
+    	SELECT * FROM basket WHERE userid = #{param1} order by orderid desc
+	</select>
+   	<insert id="basketadd">
+   		insert into basket set orderid=#{param1}, userid=#{param2}, title=#{param3}, price=#{param4}, 
+   							   amount=#{param5}, count=#{param6}, img=#{param7}
+   	</insert>
+   	<!-- 결제 성공시에만 db내 테이블 저장 -->
+    <insert id="addpayments">
+        INSERT INTO payments set
+       userid=#{param1},orderName=#{param2},amount=#{param3},payment_method=#{param4},order_time=sysdate()
+    </insert>
+    
+    <delete id="basketRemove">
+    	DELETE FROM basket WHERE id = #{param1} 
+    </delete>
+    
+    <!-- 결제 후 장바구니 삭제 -->
+   	<delete id="orderDelete">
+      DELETE FROM basket WHERE id = #{param1}
+   	</delete>
+   	
+   	 <select id="payBasketList" resultType="com.himedia.pet.DTO.BasketDTO"> 
+         select a.email,b.orderName,b.amount,b.order_time 
+         from login a,payments b 
+         where a.id=b.userid 
+         and b.userid=#{param1} order By b.order_time desc 
+      </select>
+   <select id="payBookList" resultType="com.himedia.pet.DTO.BasketDTO"> 
+      select a.email,b.orderName,b.amount,b.order_time 
+      from login a,payments2 b 
+      where a.id=b.userid 
+      and b.userid=#{param1}
+   </select>
+	
+</mapper>

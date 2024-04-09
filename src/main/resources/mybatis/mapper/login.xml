@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.LoginDAO">
+    <!-- 로그인 -->
+    <select id="log" resultType="_int">
+        SELECT COUNT(*) FROM login WHERE email=#{param1} AND password=#{param2}
+    </select>
+    
+     <select id="findEmail" resultType="java.lang.Boolean">
+        <![CDATA[
+           SELECT COUNT(*) > 0 FROM login WHERE email = #{param1}
+        ]]>
+    </select>
+    
+    <insert id="saveKakao">
+       INSERT into login set email=#{param1}, kakaoId=#{param2}  
+    </insert>
+    
+    <insert id="saveNaver">
+       INSERT INTO login SET email=#{param1}, naverId=#{param2}
+    </insert>
+    
+    <insert id="saveGoogle">
+       INSERT INTO login SET email=#{param1}, googleId=#{param2}
+    </insert>
+    
+    
+    <insert id ="savelog">
+       INSERT INTO login set email=#{param1}, password=#{param2}
+    </insert>
+    
+    <update id="updateKakao">
+       update login set email=#{param1}, kakaoId=#{param2} where id=#{param3}
+    </update>
+    
+    <update id="updateNaver">
+       update login set email=#{param1}, naverId=#{param2} where id=#{param3}
+    </update>
+    
+    <update id="updateGoogle">
+       update login set email=#{param1}, googleId=#{param2} where id=#{param3}
+    </update>
+    
+    <select id="nemailExists" resultType="java.lang.Boolean">
+        <![CDATA[
+           SELECT COUNT(*) > 0 FROM login WHERE email = #{param1} and naverId=#{param2}
+        ]]>
+    </select>
+    
+    <select id="kemailExists" resultType="java.lang.Boolean">
+        <![CDATA[
+           SELECT COUNT(*) > 0 FROM login WHERE email = #{param1} and kakaoId = #{param2}
+        ]]>
+    </select>
+    
+    <select id="getuserid" resultType="java.lang.Integer">
+      select id from login where email=#{param1} 
+   </select>
+   
+    <select id="gemailExists" resultType="java.lang.Boolean">
+        <![CDATA[
+           SELECT COUNT(*) > 0 FROM login WHERE email = #{param1} and googleId = #{param2}
+        ]]>
+    </select>
+    
+    <select id="adLogin" resultType="_int">
+        SELECT count(*) FROM login WHERE email=#{parma1} and admin="1";
+    </select>
+
+	<select id="updateMyList" resultType="com.himedia.pet.DTO.LoginDTO"> 
+       SELECT id,email FROM login WHERE id=#{param1} 
+    </select>
+    
+    <update id="addadvertiser">
+       update login set advertiser="1" where id=#{param1}
+    </update>
+    
+    <select id="checkad" resultType="_int">
+       select advertiser from login where email=#{param1}
+    </select>
+
+</mapper>

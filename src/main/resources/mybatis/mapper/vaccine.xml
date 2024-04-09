@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.vaccineDAO">
+
+ <insert id='petadd'>
+    insert into petAdd set petnumber=#{param1} ,petname=#{param2}, petbirth=#{param3}, loginid=#{param4}
+ </insert>
+ <select id="petload" resultType="com.himedia.pet.DTO.vpetDTO">
+     select id,petnumber, petname, petbirth from petAdd where loginid=#{param1}
+ </select>
+ <select id="petchoice" resultType="com.himedia.pet.DTO.vpetDTO">
+     select petnumber, petname, petbirth from petAdd where id=#{param1}
+ </select>
+ <select id="dateadd" resultType="String">
+     select  DATE_ADD(#{param1}, INTERVAL #{param2} WEEK)
+ </select>
+  <update id="pmodify" >
+     update petAdd set petnumber=#{param2},petname=#{param3},petbirth=#{param4} where id=#{param1}
+ </update>
+ <delete id="pdelete">
+    delete from petAdd where id=#{param1}
+ </delete>
+
+ 
+  <select id="idload" resultType="_int">
+    select id from login where email=#{param1}
+ </select>
+ 
+</mapper>
+   

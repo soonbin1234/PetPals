@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.pet.DAO.QnaDAO">
+
+   <!-- Qna-->
+   <insert id="QnaWrite">
+      INSERT into Questions set title=#{param1},userid=#{param2},content=#{param3},created_at=sysdate()
+   </insert>
+   <select id="QnaLoad" resultType="com.himedia.pet.DTO.QnaDTO">
+      SELECT a.id, title, email, content, created_at from Questions a,login b where a.userid=b.id limit #{param1},10
+   </select> 
+   <select resultType="_int" id="QnaTotal">
+      select count(*) from Questions
+   </select>
+   <update id="Qmodify">
+      UPDATE Questions set title=#{param1}, content=#{param2} where id=#{param3}
+   </update>
+   <delete id="QDelete">
+      delete from Questions where id=#{param1}
+   </delete>
+   <insert id="comment"> 
+      INSERT into Answers set question_id=#{param1} , userid=#{param2}, content=#{param3},created=sysdate() 
+      </insert>
+   <select id="QnAanswer" resultType="com.himedia.pet.DTO.AnswersDTO"> 
+      select a.id,question_id,content,email from Answers a,login b where a.userid=b.id 
+   </select>
+   <update id="commentModify"> 
+      UPDATE Answers set content=#{param2} where id=#{param1} 
+   </update>
+   <delete id="commentDelete"> 
+      delete from Answers where id=#{param1} 
+   </delete>
+   <delete id="qnacommentdelete">
+      delete from Answers where question_id=#{param1}
+   </delete>
+      <!-- QNA 목록 불러오기 -->
+   <select id="qnaList" resultType="com.himedia.pet.DTO.QnaDTO">
+      select a.title,a.content,b.email
+      from questions a, login b
+      where a.userId=b.id
+      and a.userId=#{param1}
+   </select>
+</mapper>

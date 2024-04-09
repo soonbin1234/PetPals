@@ -1,0 +1,289 @@
+@charset "UTF-8";
+    gowun-dodum-regular {
+     font-family: "Gowun Dodum", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+   }
+     .container { 
+       display: flex;
+       justify-content: space-between;
+       align-items: flex-start;
+       padding: 50px;
+       margin: 0 auto 
+   }
+   
+   .product-map {
+       flex: 1; /* 확장 가능한 크기 */
+       margin-right: 10px;
+       max-width:1500px;
+       
+   }
+   .product-options {
+       flex: 1; /* 확장 가능한 크기 */  
+       max-width:800px; 
+    }
+    #information{
+      margin-bottom: 20px;
+    }
+   /* 테이블 스타일 */
+   table {
+       border-collapse: collapse;
+       width: 100%;
+   }
+   
+   th, td {
+       border: 1px solid black;
+       padding: 8px;
+       text-align: left;
+   }
+   
+   /* 리뷰 작성 양식 숨김 */
+   .review {
+       display: none;
+       margin-bottom: 500px; 
+   }
+   
+   /* 탭 스타일 */
+   .tab {
+       overflow: hidden;
+       border: 1px solid #634522;
+       background-color: #634522;
+       display: flex;
+       justify-content: center;
+   }
+   
+   .tab button {
+       background-color: inherit;
+       float: left;
+       border: none;
+       outline: none;
+       cursor: pointer;
+       padding: 14px 16px;
+       transition: 0.3s;
+       width: 200px; 
+       height: 50px;
+       font-size: 15px;
+   }
+   /* 리뷰 리스트 테이블 스타일 */
+   #tbl_review {
+       width: 100%;
+   }
+   
+   #tbl_review th {
+       background-color: #f2f2f2;
+   }
+   
+   #tbl_review th, #tbl_review td {
+       padding: 10px;
+   }
+   
+   /* 리뷰 작성 양식 스타일 */
+   .review_form {
+       margin-top: 20px;
+   }
+   
+   .review_form input[type="text"],
+   .review_form textarea {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 10px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+   }
+   
+
+   /* 전역 스타일 설정 */
+   body {
+       font-family: "Gowun Dodum", sans-serif;
+       font-weight: 900;
+       font-style: normal;
+       margin: 0;
+       background: #f8f1e5;
+   }
+   h1{
+      text-align: center;
+   }
+   h2 {
+       color: #333;
+   }
+   
+   a {
+       color: #634522;
+   }
+   
+   a:hover {
+       color: #2980b9;
+   }
+   
+   table {
+       margin-top: 20px;
+       border-collapse: collapse;
+       background-color: #fff;
+       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+   }
+   
+   th, td {
+       padding: 10px;
+       text-align: center;
+       border-bottom: 1px solid #ddd;
+   }
+   
+   td {
+       background-color: #f6f5ec;
+   }
+   
+   th {
+       background-color: #634522;
+       color: #fff;
+   }
+   
+   tr:hover {
+       background-color: #f5f5f5;
+   }
+   
+   button {
+       padding: 8px 12px;
+       background-color: #634522;
+       color: #fff;
+       border: none;
+       cursor: pointer;
+   }
+   
+   div.detail {
+       width: 1000px;
+       overflow: auto;
+       margin: auto;
+   }
+   .borad_id{
+      display:none;
+   }
+   /* 박스 영역 스타일 */
+   .box-area {
+       background-color: #f8f1e5;
+       border: 2px solid #ddd;
+       padding: 20px;
+       margin-top: 20px;
+       text-align: center;
+   }
+   
+   .box-area p {
+       font-family: 'Nanum Pen Script', sans-serif;
+       font-size: 20px;
+       margin: 10px 0;
+       line-height: 1.5;
+   }
+   .btn-like {
+      color: transparent;
+      text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
+      border: none;
+      background-color: transparent;
+   }
+   .btn-like:hover {
+      text-shadow: 0 0 0 #ea0;
+   }
+   .btn-like.done {
+      color: inherit;
+      text-shadow: 0;
+   }
+   .btn-like.done:hover {
+      color: transparent;
+      text-shadow: 0 0 0 #777;
+   }
+
+   #Container2 {
+       margin-top: 20px; /* 위쪽 여백 설정 */
+       padding: 20px; /* 내부 여백 설정 */
+   }
+   
+   #information {
+       margin-bottom: 500px; /* 하단 여백 설정 */
+   }
+   .fa-solid.fa-dog {
+       font-size: 50px; 
+   }
+   .fa-solid.fa-door-open{
+       font-size: 50px;
+   }
+   .fa-solid.fa-square-parking{
+       font-size: 50px;
+   }
+
+/*플로팅 버튼*/
+.floating-button {
+  display: flex;
+  position: fixed;
+  right: 10px;
+  bottom: 15px;
+  z-index: 999;
+}
+
+/*플로팅 버튼 아이콘 공용 스타일*/
+.guest-btn::before {
+   width: 100%;
+   height: 100%;
+   opacity: 1;
+   border-radius: 50%;
+   font-size: 1.15em;
+   font-family: 'Font Awesome 5 Pro';
+/*플로팅 버튼 아이콘 색상 수정O*/
+	color: #b67700;
+}
+
+/*플로팅 버튼 스타일*/
+.move-guestBook {
+  float: left;
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  /*사용자 설정 파트*/	
+  font-weight: 900;
+  background-color: #00000000;
+  border: 2px solid #b67700;
+}
+/*플로팅 버튼 아이콘 공용 스타일*/
+.guest-btn::before, .myWebSite-btn::before {
+   width: 100%;
+   height: 100%;
+   opacity: 1;
+   border-radius: 50%;
+   font-size: 1.15em;
+   font-family: 'Font Awesome 5 Pro';
+	 /*플로팅 버튼 아이콘 색상 수정O*/
+	 color: #b67700;
+}
+
+/*플로팅 버튼 스타일*/
+.move-guestBook, .move-myWebSite {
+  float: left;
+  display: flex;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  /*사용자 설정 파트*/	
+  font-weight: 700;
+  background-color: #00000000;
+  border: 2px solid #b67700;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.myWebSite-btn::before {
+	content: '\f590'	
+}
+
+
+
+
+      

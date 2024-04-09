@@ -1,0 +1,59 @@
+ @charset "UTF-8";
+ gowun-dodum-regular  {
+	    font-family: "Gowun Dodum", sans-serif;
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	*{
+		 font-family: "Gowun Dodum", sans-serif;
+		 font-weight: bold;
+	}
+.layout {
+       width: 80%;
+       max-width: 600px;
+       margin: 20px auto;
+       background-color: #f8f1e5;
+       padding: 20px;
+       border-radius: 8px;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+   }
+   
+   .layout label {
+       display: block;
+       font-weight: bold;
+       margin-bottom: 5px;
+   }
+   
+   .layout input[type="text"],
+   .layout textarea {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 15px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+   }
+   
+   .layout textarea {
+       min-height: 150px;
+       resize: vertical;
+   }
+   
+   
+   .layout select {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 15px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+   }
+   button {
+		padding: 8px 12px;
+		background-color: #634522;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		
+	}

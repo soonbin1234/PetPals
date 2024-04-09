@@ -1,0 +1,109 @@
+/* 전역 스타일 */
+@charset "UTF-8";
+
+/* 폰트 설정 */
+body, button, input, textarea {
+    font-family: "Gowun Dodum", sans-serif;
+}
+
+body {
+    background-color: #f8f1e5; /* 부드러운 베이지톤 배경색 */
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+/* 컨테이너 스타일 */
+.container { 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; 
+}
+
+/* 가운데 타이틀 스타일 */
+h1.middle_top_title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* 가운데 구분선 스타일 */
+hr.middle_top_hr {
+    width: 50%;
+    margin: 0 auto;
+    border: none;
+    border-top: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 8px 12px;
+    background-color: #634522;
+    color: #fff;
+    border: none;
+    cursor: pointer;   
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#new_write {
+    display: block;
+    width: 200px;
+    margin: 20px auto; 
+    opacity: 0.5; /* 기본 투명도 설정 */
+}
+
+#new_write:hover {
+    opacity: 1; /* 호버 시 투명도 변경 */
+    background-color: #4b331f;
+}
+
+/* 공지사항 스타일 */
+.announcement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 70%;
+    margin: auto;
+    background-color: rgb(243, 239, 234);
+    border: 1px solid #ccc;
+}
+
+.announcement span {
+    margin-right: 20px;
+}
+
+.announcement div {
+    display: flex;
+}
+
+/* 입력 필드 스타일 */
+.announcement input[type="text"],
+.announcement textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.announcement textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* 숨겨진 요소들 */
+#data_write, .cid {
+    display: none;
+}
+#showpage {
+       margin: 0 auto; /* 좌우 가운데 정렬을 위해 auto 값을 사용합니다. */
+   }
